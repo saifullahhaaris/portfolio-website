@@ -1,11 +1,11 @@
 import React from 'react'
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react'; 
 import TitleHeader from "../components/TitleHeader";
 import Button from '../components/Button.jsx'
-import GlowCard from '../components/GlowCard'; // Adjust the path if needed
+import GlowCard from '../components/GlowCard'; 
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +17,17 @@ const ShowcaseSection = () => {
     const project4Ref = useRef(null);
     const project5Ref = useRef(null);
 
-    
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+            const el = document.querySelector(hash);
+            if (el) {
+                setTimeout(() => {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                }, 600); // Adjust delay as needed
+            }
+        }
+    }, []);
 
     useGSAP(() => {
 
@@ -46,7 +56,7 @@ const ShowcaseSection = () => {
         )
     }, [])
   return (
-    <section id="work" ref={sectionRef} className="app-showcase">
+    <section id="work" ref={sectionRef} className="app-showcase scroll-mt-20">
         <div className="w-full">
             <TitleHeader 
                     title="Personal Projects" 
@@ -304,6 +314,7 @@ export default ShowcaseSection
 
 
 
+
 // import React from 'react'
 // import { useRef } from 'react';
 // import gsap from 'gsap';
@@ -362,8 +373,8 @@ export default ShowcaseSection
 //                 {/* {LEFT} */}
 //                 <div className="first-project-wrapper" ref={project1Ref}>
 //                     <GlowCard showReview={false}>
-//                     <div className="image-wrapper">
-//                         <img src="/images/project1.png" alt="Ticket Management System"/>
+//                     <div className="xl:h-[70vh] md:h-[50vh] h-96 relative bg-[#ffefdb] rounded-xl overflow-hidden flex justify-center items-center">
+//                         <img  className="w-full h-full object-contain scale-140" src="/images/ticketmanagementimage.png" alt="Ticket Management System"/>
 //                     </div>
 //                     <div className="text-content mb-5">
 //                         <h2>
@@ -422,8 +433,12 @@ export default ShowcaseSection
 //                 <div className="project-list-wrapper overflow-hidden">
 //                     <div className="project" ref={project2Ref}>
 //                         <GlowCard showReview={false}>
-//                         <div className="image-wrapper bg-[#ffefdb]">
-//                             <img src="/images/project2.png" alt="Movie Finder App"/>
+//                         <div className="image-wrapper bg-[#c88893] xl:h-[36.7vh] md:h-[34vh] h-[28vh] rounded-xl relative overflow-hidden">
+//                             <img 
+//                                 src="/images/movieappimage.png" 
+//                                 alt="Movie Finder App"
+//                                 className="absolute inset-0 w-full h-full object-contain"
+//                             />
 //                         </div>
 //                         <h2 className="mb-4">
 //                             An Android app for discovering, searching, and saving movies.
@@ -449,8 +464,8 @@ export default ShowcaseSection
 //                     </div>
 //                     <div className="project" ref={project3Ref}>
 //                         <GlowCard showReview={false}>
-//                         <div className="image-wrapper bg-[#c88893]">
-//                             <img src="/images/project3.png" alt="Snake Game"/>
+//                         <div className="image-wrapper bg-[#957278]">
+//                             <img src="/images/javasnakegameimage.png" alt="Snake Game" className="absolute inset-0 w-full h-full object-contain"/>
 //                         </div>
 //                         <h2 className="mb-4">
 //                            A classic Snake game built in Java
@@ -505,8 +520,8 @@ export default ShowcaseSection
 //                 <div className="project-list-wrapper overflow-hidden">
 //                     <div className="project" ref={project4Ref}>
 //                         <GlowCard showReview={false}>
-//                         <div className="image-wrapper bg-[#9e8186]">
-//                             <img src="/images/project3.png" alt="Dice Battle"/>
+//                         <div className="image-wrapper bg-[#9e8186] xl:h-[36.7vh] md:h-[34vh] h-[28vh] rounded-xl relative overflow-hidden">
+//                             <img src="/images/dicegameimage.png" alt="Dice Battle" className="absolute inset-0 w-full h-full object-contain"/>
 //                         </div>
 //                         <h2 className="mb-4">
 //                            A real-time multiplayer dice battle game for Android
@@ -533,7 +548,7 @@ export default ShowcaseSection
 //                     <div className="project" ref={project5Ref}>
 //                         <GlowCard showReview={false}>
 //                         <div className="image-wrapper bg-[#797676]">
-//                             <img src="/images/project3.png" alt="Java Pathfinder"/>
+//                             <img src="/images/javapathfinderimage.png" alt="Java Pathfinder" className="absolute inset-0 w-full h-full object-contain"/>
 //                         </div>
 //                         <h2 className="mb-4">
 //                             A Java Application for Solving Grid-Based Pathfinding Puzzles with A* Algorithm
@@ -551,7 +566,7 @@ export default ShowcaseSection
 //                             <Button
 //                                 className="flex-1 min-w-[140px] sm:max-w-[220px] h-12 md:h-16"
 //                                 text="Demo"
-//                                 href="https://www.youtube.com/@saifullahhaaris"
+//                                 href="https://www.youtube.com/watch?v=uu-8wAMmOeU"
 //                                 icon="arrow-right.svg"
 //                             />
 //                         </div>
