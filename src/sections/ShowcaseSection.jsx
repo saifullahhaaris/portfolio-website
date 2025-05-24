@@ -56,9 +56,12 @@ const ShowcaseSection = () => {
                 {/* {LEFT} */}
                 <div className="first-project-wrapper" ref={project1Ref}>
                     <GlowCard showReview={false}>
-                    <div className="image-wrapper">
-                        <img src="/images/project1.png" alt="Ticket Management System"/>
+                        <div className="xl:h-[70vh] md:h-[50vh] h-96 relative bg-[#ffefdb] rounded-xl overflow-hidden flex justify-center items-center">
+                        <img  className="w-full h-full object-contain scale-140" src="/images/ticketmanagementimage.png" alt="Ticket Management System"/>
                     </div>
+{/*                     <div className="image-wrapper">
+                        <img src="/images/project1.png" alt="Ticket Management System"/>
+                    </div> */}
                     <div className="text-content mb-5">
                         <h2>
                             A full-stack web app to manage and track tickets
