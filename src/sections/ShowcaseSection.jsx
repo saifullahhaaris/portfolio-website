@@ -24,7 +24,7 @@ const ShowcaseSection = () => {
             if (el) {
                 setTimeout(() => {
                     el.scrollIntoView({ behavior: 'smooth' });
-                }, 600); // Adjust delay as needed
+                }, 100); // Adjust delay as needed
             }
         }
     }, []);
