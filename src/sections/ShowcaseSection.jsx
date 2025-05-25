@@ -86,7 +86,7 @@ const ShowcaseSection = () => {
                             <Button
                                 className="flex-1 min-w-[140px] sm:max-w-[220px] h-12 md:h-16"
                                 text="Demo"
-                                href="https://www.youtube.com/@saifullahhaaris"
+                                href="https://youtu.be/fxANUeUroWk"
                                 icon="arrow-right.svg"
                             />
                         </div>
