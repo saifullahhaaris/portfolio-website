@@ -34,7 +34,7 @@ const EducationSection = () => {
               <GlowCard card={card} index={index} showReview={false}>
                 <div>
                   <h1 className="text-2xl font-semibold">{card.institute}</h1>
-                  <p className="text-white-50 italic my-2">🎓 {card.degree}</p>
+                  <p className="text-white-50 my-2">🎓 {card.degree}</p>
                   <p className="text-white-50 mb-3">🗓️ {card.duration}</p>
                   <ul className="list-disc ms-5 flex flex-col gap-2 text-white-50">
                     {card.highlights.map((point, i) => (
