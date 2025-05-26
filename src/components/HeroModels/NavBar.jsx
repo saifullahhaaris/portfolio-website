@@ -1,41 +1,79 @@
-import React from 'react' 
-import { navLinks } from '../../constants'
+import React, { useState } from 'react';
+import { navLinks } from '../../constants';
 
 const NavBar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="navbar">
-        <div className="inner">
-            <a className="logo" href="#hero">
-                SAIF
-            </a>
+      <div className="inner">
+        {/* Hamburger Icon for Mobile - left side */}
+        <button
+          className="hamburger"
+          onClick={() => setOpen(!open)}
+          aria-label="Open menu"
+        >
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </button>
 
-            <nav className="desktop">
-                <ul>
-                    {navLinks.map(({link, name}) => (
-                        <li key={name} className="group">
-                            <a href={link}>
-                                <span>{name}</span>
-                                <span className="underline"/>
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+        {/* SAIF logo on the left */}
+        <div className="hidden lg:block">
+  <a className="logo" href="#hero">
+    SAIF
+  </a>
+</div>
 
-            <a href="#contact" className="contact-btn group">
-                <div className="inner">
-                    <span>
-                        contact me
-                    </span>
-                </div>
-            </a>
-        </div>
+        {/* Desktop Nav */}
+        <nav className="desktop">
+          <ul>
+            {navLinks.map(({ link, name }) => (
+              <li key={name} className="group">
+                <a href={link}>
+                  <span>{name}</span>
+                  <span className="underline" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Mobile Menu */}
+        {open && (
+        <nav className="mobile-menu">
+            <ul>
+            {/* Add SAIF at the top */}
+            <li>
+                <a href="#hero" onClick={() => setOpen(false)}>
+                Saif
+                </a>
+            </li>
+
+            {/* Existing nav links */}
+            {navLinks.map(({ link, name }) => (
+                <li key={name}>
+                <a href={link} onClick={() => setOpen(false)}>
+                    {name}
+                </a>
+                </li>
+            ))}
+            </ul>
+        </nav>
+        )}
+
+        {/* Contact button always at right */}
+        <a href="#contact" className="contact-btn group">
+          <div className="inner">
+            <span>contact me</span>
+          </div>
+        </a>
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default NavBar
-
+export default NavBar;
 
 
 
