@@ -87,7 +87,14 @@ const Hero = () => {
     <figure className=" flex-1 lg:w-1/2 flex items-center justify-center p-5 lg:p-10"> 
     {/* bg-[#490be4] */}
       <div className="w-full max-w-[300px] md:max-w-[350px] lg:max-w-[400px] aspect-square">
-        <img src="/images/profile-photo.png" alt="profilephoto"/>
+        <img
+    src="/images/profile-photo.webp"
+    alt="Profile photo of Saifullah Haaris"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    //className="w-full h-full object-cover rounded-full" // Optional styling for polish
+  />
         {/* <HeroExperience/> */}
       </div>
     </figure>
