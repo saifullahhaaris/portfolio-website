@@ -103,7 +103,7 @@ section {
     @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
   }
 
-  .navbar {
+    .navbar {
     @apply fixed w-full left-1/2 py-5 px-5 md:px-20 -translate-x-1/2 z-[100] bg-black transition-all duration-300 ease-in-out;
 
     &.scrolled {
@@ -123,7 +123,7 @@ section {
     }
 
     nav.desktop {
-      @apply hidden lg:flex items-center;
+      @apply hidden lg:flex items-center justify-center mx-auto;
 
       ul {
         @apply flex space-x-8;
@@ -140,6 +140,30 @@ section {
           }
         }
       }
+    }
+
+    .hamburger {
+      @apply flex flex-col justify-center items-center w-10 h-10 lg:hidden cursor-pointer;
+      background: none;
+      border: none;
+      gap: 3px;
+    }
+    .hamburger .dot {
+      @apply w-2 h-2 bg-white rounded-full block;
+    }
+    .hamburger .bar {
+      @apply w-6 h-0.5 bg-white block my-1 rounded;
+    }
+
+    .mobile-menu {
+      @apply absolute top-full left-5 bg-black-100 rounded-lg shadow-lg p-5 flex flex-col gap-4 lg:hidden;
+      z-index: 999;
+    }
+    .mobile-menu ul {
+      @apply flex flex-col gap-4;
+    }
+    .mobile-menu li a {
+      @apply text-white-50 text-lg;
     }
 
     .contact-btn {
